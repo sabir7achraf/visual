@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Image from "next/image";
 import img1 from "./../public/fst.png";
 import img2 from "./../public/logo-uae.png";
+import { FlipWordsDemo } from "./flipwords";
 
 export function BackgroundLinesDemo() {
     return (
@@ -24,10 +25,10 @@ export function BackgroundLinesDemo() {
                     <Image src={img2} alt="Logo uae" width={400} height={400}/>
                 </div>
             </Container>
-            <h1 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+            <h1 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-white dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                 VISUAL AIDS
             </h1>
-            <h4 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
+            <h4 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-white dark:from-neutral-600 dark:to-white font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
                LSI 2024/2025
             </h4>
             <Container sx={{
@@ -38,10 +39,12 @@ export function BackgroundLinesDemo() {
                 alignItems: "center"
             }}>
                 <div>
-                    <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">REALIZED BY <br/> ACHRAF SABIR <br/> AYOUB AIT SAID <br/> MOHAMED MOUAD RGUIBI</p>
+                    <p className="max-w-xl mx-auto text-sm md:text-lg text-white dark:text-neutral-400 text-center font-bold pb-12">REALIZED BY  </p>
+                    <FlipWordsDemo/>
                 </div>
                 <div>
-                    <p className="max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center">SUPERVISED BY <br/> TEACHER </p>
+                    <p className="max-w-xl mx-auto text-sm md:text-lg text-white dark:text-neutral-400 text-center font-bold pb-12">SUPERVISED BY </p>
+                   <h1 className="text-2xl font-semibold">Zineb M'barki</h1> 
                 </div>
             </Container>
         </BackgroundLines>

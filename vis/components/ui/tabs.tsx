@@ -25,6 +25,8 @@ export const Tabs = ({
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
+  const [clickedTabIndex, setClickedTabIndex] = useState<number | null>(null);
+  const [hovering, setHovering] = useState(false);
 
   const moveSelectedTabToTop = (idx: number) => {
     const newTabs = [...propTabs];
@@ -33,8 +35,6 @@ export const Tabs = ({
     setTabs(newTabs);
     setActive(newTabs[0]);
   };
-
-  const [hovering, setHovering] = useState(false);
 
   return (
     <>
@@ -49,6 +49,7 @@ export const Tabs = ({
             key={tab.title}
             onClick={() => {
               moveSelectedTabToTop(idx);
+              setClickedTabIndex(idx); // Mettez à jour l'indice de l'onglet cliqué
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
@@ -62,13 +63,17 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-0 bg-gray-200 text-black dark:bg-zinc-800 rounded-full ",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block text-black dark:text-white">
+            <span
+              className={`relative block ${
+                clickedTabIndex === idx ? "text-black" : "text-white"
+              } dark:${clickedTabIndex === idx ? "text-white" : "text-black"}`}
+            >
               {tab.title}
             </span>
           </button>
