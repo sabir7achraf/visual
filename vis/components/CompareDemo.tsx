@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Compare } from "@/components/ui/compare";
 import {CanvasRevealEffectDemo} from"./Approach";
-import bad from "./../public/images/bad_present.png";
-import good from "./../public/images/good_presentation.webp";
+
 export function CompareDemo() {
   return (
   <>

@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
-import bad from "./../../public/images/bad_present.png";
-import good from "./../../public/images/good_presentation.webp"
+
 interface CompareProps {
   firstImage?: string;
   secondImage?: string;

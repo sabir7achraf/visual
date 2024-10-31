@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React from "react";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import Container from "@mui/material/Container";
