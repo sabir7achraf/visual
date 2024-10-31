@@ -76,9 +76,11 @@ export function TabsDemo() {
 }
 
 const DummyContent = () => {
-  const [maximizedImage, setMaximizedImage] = useState(null);
+  // Update the state type to allow StaticImageData or null
+  const [maximizedImage, setMaximizedImage] = useState<StaticImageData | null>(null);
 
-  const openImage = (src: SetStateAction<null> | StaticImageData) => setMaximizedImage(src);
+  // Update the function parameter type to match the state type
+  const openImage = (src: StaticImageData | null) => setMaximizedImage(src);
   const closeImage = () => setMaximizedImage(null);
 
   return (
@@ -93,16 +95,16 @@ const DummyContent = () => {
         <Image
           src={ds1}
           alt="dummy image 1"
-          width="500"
-          height="500"
+          width={500}
+          height={500}
           className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
           onClick={() => openImage(ds1)}
         />
         <Image
           src={ds2}
           alt="dummy image 2"
-          width="500"
-          height="500"
+          width={500}
+          height={500}
           className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
           onClick={() => openImage(ds2)}
         />
@@ -127,8 +129,8 @@ const DummyContent = () => {
               <Image
                 src={maximizedImage}
                 alt="Maximized"
-                width="800"
-                height="800"
+                width={800}
+                height={800}
                 className="object-contain rounded-lg cursor-pointer"
               />
             </motion.div>
@@ -139,156 +141,149 @@ const DummyContent = () => {
   );
 };
 
+export default DummyContent;
+
 const DummyContent2 = () => {
-    const [maximizedImage, setMaximizedImage] = useState(null);
-  
-    const openImage = (src: SetStateAction<null> | StaticImageData) => setMaximizedImage(src);
-    const closeImage = () => setMaximizedImage(null);
-  
-    return (
-      <div className="relative text-center space-y-4">
-        {/* Description en haut */}
-        <p className="text-lg text-white font-base mb-6">
+  const [maximizedImage, setMaximizedImage] = useState<StaticImageData | null>(null);
+
+  const openImage = (src: StaticImageData | null) => setMaximizedImage(src);
+  const closeImage = () => setMaximizedImage(null);
+
+  return (
+    <div className="relative text-center space-y-4">
+      {/* Description en haut */}
+      <p className="text-lg text-white font-base mb-6">
         Images and graphics are powerful elements in a presentation because they capture attention and make information easier to understand. Illustrations and photos help to make concepts more tangible and memorable by adding visual context. Graphics, whether pie charts, bar charts, or line graphs, provide a visual representation of data, making numbers and statistics more accessible and intuitive. With their strong visual impact, images and graphics help the audience retain information more effectively, enhancing engagement and comprehension.
-        </p>
-  
-        <div className="flex flex-col items-center gap-2">
-  {/* Ligne supérieure avec deux images encore plus petites */}
-  <div className="flex justify-center gap-4">
-        <Image
-          src={img}
-          alt="dummy image 1"
-          width="500"
-          height="500"
-          className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
-          onClick={() => openImage(img)}
-        />
-        <Image
-          src={grp2}
-          alt="dummy image 2"
-          width="500"
-          height="500"
-          className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
-          onClick={() => openImage(grp2)}
-        />
+      </p>
+
+      <div className="flex flex-col items-center gap-2">
+        {/* Ligne supérieure avec deux images encore plus petites */}
+        <div className="flex justify-center gap-4">
+          <Image
+            src={img}
+            alt="dummy image 1"
+            width={500}
+            height={500}
+            className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+            onClick={() => openImage(img)}
+          />
+          <Image
+            src={grp2}
+            alt="dummy image 2"
+            width={500}
+            height={500}
+            className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+            onClick={() => openImage(grp2)}
+          />
+        </div>
+        {/* Image du bas avec largeur presque complète et bien centrée */}
+        <div className="flex justify-center w-full"></div>
       </div>
-  
-  {/* Image du bas avec largeur presque complète et bien centrée */}
-  <div className="flex justify-center w-full">
-   
-  </div>
-</div>
 
-
-  
-        {/* Modal d'image maximisée */}
-        <AnimatePresence>
-          {maximizedImage && (
+      {/* Modal d'image maximisée */}
+      <AnimatePresence>
+        {maximizedImage && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeImage}
+          >
             <motion.div
-              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeImage}
+              className="relative"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
             >
-              <motion.div
-                className="relative"
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.8 }}
-              >
-                <Image
-                  src={maximizedImage}
-                  alt="Maximized"
-                  width="800"
-                  height="800"
-                  className="object-contain rounded-lg cursor-pointer"
-                />
-              </motion.div>
+              <Image
+                src={maximizedImage}
+                alt="Maximized"
+                width={800}
+                height={800}
+                className="object-contain rounded-lg cursor-pointer"
+              />
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  };
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
-  const DummyContent3 = () => {
-    const [maximizedImage, setMaximizedImage] = useState(null);
-  
-    const openImage = (src: SetStateAction<null> | StaticImageData) => setMaximizedImage(src);
-    const closeImage = () => setMaximizedImage(null);
-  
-    return (
-      <div className="relative text-center space-y-4">
-        {/* Description en haut */}
-        <p className="text-lg text-white font-base mb-6">
+
+const DummyContent3 = () => {
+  // Update the state type to allow StaticImageData or null
+  const [maximizedImage, setMaximizedImage] = useState<StaticImageData | null>(null);
+
+  // Update the function parameter type to match the state type
+  const openImage = (src: StaticImageData | null) => setMaximizedImage(src);
+  const closeImage = () => setMaximizedImage(null);
+
+  return (
+    <div className="relative text-center space-y-4">
+      {/* Description en haut */}
+      <p className="text-lg text-white font-base mb-6">
         These visual aids are essential for representing data and illustrating relationships among various elements. Charts, such as bar graphs, pie charts, and line graphs, provide a clear and concise way to present numerical information, making it easier for audiences to grasp complex data at a glance. Diagrams, on the other hand, can depict processes, hierarchies, or relationships, helping viewers understand connections and flow between different components. Together, charts and diagrams enhance comprehension, allowing presenters to convey their messages more effectively.
-        <br></br>
-        <span className="text-red-900">NB:all graphs can be considered charts, but not all charts are graphs.</span>
-        </p>
-  
-        <div className="flex flex-col items-center gap-2">
-  {/* Ligne supérieure avec deux images encore plus petites */}
-  <div className="flex justify-center gap-4">
-        <Image
-          src={charts}
-          alt="dummy image 1"
-          width="500"
-          height="500"
-          className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
-          onClick={() => openImage(charts)}
-        />
-        <Image
-  src={diag}
-  alt="dummy image 2"
-  width="400" // Decrease width
-  height="400" // Decrease height
-  className="object-cover object-top h-[50%] md:h-[60%] w-[35%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
-  onClick={() => openImage(diag)}
-/>
+        <br />
+        <span className="text-red-900">NB: all graphs can be considered charts, but not all charts are graphs.</span>
+      </p>
 
+      <div className="flex flex-col items-center gap-2">
+        {/* Ligne supérieure avec deux images encore plus petites */}
+        <div className="flex justify-center gap-4">
+          <Image
+            src={charts}
+            alt="dummy image 1"
+            width={500}
+            height={500}
+            className="object-cover object-top h-[60%] md:h-[90%] w-[45%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+            onClick={() => openImage(charts)}
+          />
+          <Image
+            src={diag}
+            alt="dummy image 2"
+            width={400} // Decrease width
+            height={400} // Decrease height
+            className="object-cover object-top h-[50%] md:h-[60%] w-[35%] rounded-xl transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+            onClick={() => openImage(diag)}
+          />
+        </div>
+        
+        {/* Image du bas avec largeur presque complète et bien centrée */}
+        <div className="flex justify-center w-full"></div>
       </div>
-  
-  {/* Image du bas avec largeur presque complète et bien centrée */}
-  <div className="flex justify-center w-full">
-   
-  </div>
-</div>
 
-
-  
-        {/* Modal d'image maximisée */}
-        <AnimatePresence>
-          {maximizedImage && (
+      {/* Modal d'image maximisée */}
+      <AnimatePresence>
+        {maximizedImage && (
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeImage}
+          >
             <motion.div
-              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeImage}
+              className="relative"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
             >
-              <motion.div
-                className="relative"
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.8 }}
-              >
-                <Image
-                  src={maximizedImage}
-                  alt="Maximized"
-                  width="800"
-                  height="800"
-                  className="object-contain rounded-lg cursor-pointer"
-                />
-              </motion.div>
+              <Image
+                src={maximizedImage}
+                alt="Maximized"
+                width={800}
+                height={800}
+                className="object-contain rounded-lg cursor-pointer"
+              />
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    );
-  };
-
-
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
   const DummyContent4 = () => {
     const [maximizedVideo, setMaximizedVideo] = useState(false);
   
