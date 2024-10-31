@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
@@ -41,9 +42,11 @@ export const StickyScroll = ({
     });
 
     const backgroundColors = [
-        "var(--slate-900)",
-        "var(--black)",
-        "var(--neutral-900)",
+        "#000000",        // Noir pur
+        "#0f172a",        // Slate 900
+       "#000000",        // Slate 800
+        "#334155",        // Slate 700
+        "#000000",        // Slate 600
     ];
     const linearGradients = [
         "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",

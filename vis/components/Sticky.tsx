@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React from "react";
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
@@ -5,23 +6,13 @@ import Image from "next/image";
 
 const content = [
     {
-        title: "Collaborative Editing",
+        title: "Visual aids",
         description:
-            "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
-        content: (
-            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-                Collaborative Editing
-            </div>
-        ),
-    },
-    {
-        title: "Real time changes",
-        description:
-            "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+            "Visual aids can strongly improve how effective a speech is. Many speeches are better when they include objects, images, important quotes, or data shown clearly and in an exciting way. Visual aids can be different types, but there are similar benefits and tips for using any extra material shown to the audience.",
         content: (
             <div className="h-full w-full  flex items-center justify-center text-white">
                 <Image
-                    src="/linear.webp"
+                    src="/images/zak.jpg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -31,22 +22,67 @@ const content = [
         ),
     },
     {
-        title: "Version control",
+        title: "History",
         description:
-            "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+            "  Visual aids go back thousands of years. In ancient civilizations like Egypt and Greece, people used symbols, drawings, and carvings on walls to communicate important messages, stories, and instructions. These visuals helped people understand complex ideas, much like today.",
         content: (
-            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-                Version control
+            <div className="h-full w-full  flex items-center justify-center text-white">
+                <Image
+                    src="/images/farina.jpeg"
+                    width={300}
+                    height={300}
+                    className="h-full w-full object-cover"
+                    alt="linear board demo"
+                />
             </div>
         ),
     },
     {
-        title: "Running out of content",
+        title: "The Middle Ages",
         description:
-            "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+            "  During this period, religious institutions used stained glass windows, paintings, and tapestries to teach people, many of whom couldn’t read. These visuals conveyed religious stories and moral lessons effectively.",
         content: (
-            <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-                Running out of content
+            <div className="h-full w-full  flex items-center justify-center text-white">
+                <Image
+                    src="/images/lihoud.jpeg"
+                    width={300}
+                    height={300}
+                    className="h-full w-full object-cover"
+                    alt="linear board demo"
+                />
+            </div>
+        ),
+    },
+    {
+        title: "The 20th Century – Technology Expands",
+        description:
+            "In the 1980s and 90s, PowerPoint software emerged, changing visual aids forever. With PowerPoint, people could easily create slides with text, images, charts, and animations, making presentations more dynamic and engaging.",
+        content: (
+            <div className="h-full w-full  flex items-center justify-center text-white">
+                <Image
+                    src="/images/ppt.jpeg"
+                    width={300}
+                    height={300}
+                    className="h-full w-full object-cover"
+                    alt="linear board demo"
+                />
+            </div>
+        ),
+    },
+    {
+        title: "The 21st Century – Digital Revolution",
+        description:
+            "Today, visual aids have advanced with technology. Presenters use digital projectors, interactive whiteboards, tablets, and screens to display high-quality visuals"+
+    "Online tools and apps allow for animations, video streaming, and interactive charts, making it possible to create highly engaging presentations even remotely.",
+        content: (
+            <div className="h-full w-full  flex items-center justify-center text-white">
+                <Image
+                    src="/images/canva.jpeg"
+                    width={300}
+                    height={300}
+                    className="h-full w-full object-cover"
+                    alt="linear board demo"
+                />
             </div>
         ),
     },
@@ -54,6 +90,11 @@ const content = [
 export function StickyScrollRevealDemo() {
     return (
         <div className="p-10">
+            <div className="flex justify-center">
+                <h1 className="text-7xl font-bold mb-24">
+                        Introduction
+                </h1>
+            </div>
             <StickyScroll content={content} />
         </div>
     );

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 "use client";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -17,7 +19,7 @@ export const BackgroundLines = ({
     return (
         <div
             className={cn(
-                "h-[20rem] md:h-screen w-full bg-white dark:bg-black",
+                "h-[20rem] md:h-screen w-full bg-black dark:bg-black",
                 className
             )}
         >
