@@ -8,8 +8,8 @@ export function LampDemo() {
   return (
     <LampContainer>
       <motion.h1
-    initial={{ opacity: 0.5, y: 100}} // Start just below the normal position
-    whileInView={{ opacity: 1, y: 50}} // End at the normal position
+    initial={{ opacity: 0.5, y: 150}} // Start just below the normal position
+    whileInView={{ opacity: 1, y: 100}} // End at the normal position
 
         transition={{
           delay: 0.3,
