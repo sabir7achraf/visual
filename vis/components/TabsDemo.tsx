@@ -299,7 +299,7 @@ const DummyContent2 = () => {
       <div className="relative text-center space-y-4">
         {/* Description en haut */}
         <p className="text-lg text-white font-base mb-6">
-          Videos significantly enhance engagement and understanding in presentations by combining visual and auditory elements. They capture the audience's attention more effectively than static images or text alone. Through storytelling, animations, or demonstrations, videos can convey complex concepts in a clear and relatable manner. This multimedia format not only holds viewers' interest but also facilitates better retention of information. By illustrating key points and providing real-life examples, videos serve as powerful tools to reinforce messages and foster a deeper connection with the audience.
+          Videos significantly enhance engagement and understanding in presentations by combining visual and auditory elements. They capture the audience&apos;s attention more effectively than static images or text alone. Through storytelling, animations, or demonstrations, videos can convey complex concepts in a clear and relatable manner. This multimedia format not only holds viewers interest but also facilitates better retention of information. By illustrating key points and providing real-life examples, videos serve as powerful tools to reinforce messages and foster a deeper connection with the audience.
         </p>
   
         {/* Single centered video */}
@@ -349,7 +349,7 @@ const DummyContent2 = () => {
         <div className="relative text-center space-y-4 py-6">
         {/* Description at the top */}
         <p className="text-2xl text-white font-base my-auto">
-          Think of building a website as the next-gen visual aid! It’s not just about static slides; it’s about crafting an immersive experience that keeps your audience engaged. With a website, you can seamlessly blend videos, animations, and interactive graphics, making your presentation come alive. For this presentation, I ditched the old-school PowerPoint for a sleek website that lets viewers dive into the content at their own pace. It's a fresh, dynamic way to connect with your audience and make those key concepts stick!
+          Think of building a website as the next-gen visual aid! It’s not just about static slides; it’s about crafting an immersive experience that keeps your audience engaged. With a website, you can seamlessly blend videos, animations, and interactive graphics, making your presentation come alive. For this presentation, I ditched the old-school PowerPoint for a sleek website that lets viewers dive into the content at their own pace. It&apos;s a fresh, dynamic way to connect with your audience and make those key concepts stick!
         </p>
       </div>
       );

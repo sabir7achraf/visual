@@ -46,7 +46,7 @@ export function BackgroundLinesDemo() {
                 </div>
                 <div>
                     <p className="max-w-xl mx-auto text-sm md:text-lg text-white dark:text-neutral-400 text-center font-bold pb-12">SUPERVISED BY </p>
-                   <h1 className="text-2xl font-semibold">Zineb M'barki</h1> 
+                   <h1 className="text-2xl font-semibold">Zineb M&apos;barki</h1> 
                 </div>
             </Container>
         </BackgroundLines>

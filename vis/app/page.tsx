@@ -5,7 +5,7 @@ import { InfiniteMovingCardsDemo } from "@/components/InfiniteMovingCardsDemo";
 import { StickyScrollRevealDemo } from "@/components/Sticky";
 import { TabsDemo } from "@/components/TabsDemo";
 
-import Image from "next/image";
+
 
 export default function Home() {
   return (
